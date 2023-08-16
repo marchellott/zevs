@@ -5,10 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZEVS</title>
 
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/base.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
 <body>
-    
+    <div id="preloader">
+        <video
+            width="100%"
+            autoplay
+            muted
+            loop
+            preload="auto"
+        >
+            <source
+                src="inc/zevs.mp4"
+                type="video/mp4" 
+            />
+            Your browser doesn't support HTML5 video tag.
+        </video>
+    </div>
+
+    <header>
+        <div class="mmenu">
+            <div class="Trigger centerer">
+                <div class="Trigger-top no-animation"></div>
+                <div class="Trigger-bottom no-animation"></div>
+            </div>
+        </div>
+    </header>
+
+    <script src="js/jquery-3.7.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+    <script>
+        // Функция для скрытия прелоадера и отображения основного контента
+        function hidePreloader() {
+          const preloader = document.getElementById('preloader');
+        
+          preloader.classList.add('hidden'); // Добавляем класс для анимации скрытия
+        }
+        
+        // Задержка в 3 секунды перед скрытием прелоадера
+        setTimeout(hidePreloader, 5000);
+    </script>
+
+    <script>
+		(function($) {
+			$(".Trigger").on('click', function(){
+			if($(".Trigger-top").hasClass("no-animation")){
+				$(".Trigger-top").removeClass("no-animation");
+				$(".Trigger-bottom").removeClass("no-animation");
+				$(".Trigger").removeClass("open-menu");
+				$(this).toggleClass('is-active close-menu');
+			} else{
+				$(this).toggleClass('is-active close-menu');
+			}
+			});
+		})(jQuery);
+	</script>
 </body>
 </html>
