@@ -18,6 +18,14 @@
     opacity: 0;
     pointer-events: none; /* Прозрачный прелоадер не блокирует клики */
 }
+#page {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Плавная анимация скрытия */
+}
+#page.visible {
+    opacity: 1;
+    pointer-events: none;
+}
 
 /* Mobile menu trigger */
 
